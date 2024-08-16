@@ -22,6 +22,8 @@ import Profile from './components/Profile/Profile.jsx';
 import AddProduct from './components/AddProduct/AddProduct.jsx';
 import Details from './components/AllProduct/Details.jsx';
 import Cart from './components/Cart/Cart.jsx';
+import AllProductTable from './components/AllProductTable/AllProductTable.jsx'; 
+import ProductUpdate from './components/AllProductTable/ProductUpdate.jsx';
 
 
 const router = createBrowserRouter([
@@ -46,8 +48,16 @@ const router = createBrowserRouter([
         element: <Details></Details>
       },
       {
+        path: '/updateProduct/:id',
+        element: <ProductUpdate></ProductUpdate>
+      },
+      {
         path: '/cart',
         element: <Cart></Cart>
+      },
+      {
+        path: '/allDataTable',
+        element: <AllProductTable></AllProductTable>
       },
     ]
   },

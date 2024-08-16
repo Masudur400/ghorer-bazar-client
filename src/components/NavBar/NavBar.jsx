@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../Hooks/useAuth";
 import { GoX } from "react-icons/go";
 import { MdLogout } from "react-icons/md";
+import useCarts from "../Hooks/useCarts";
 
 const NavBar = () => {
 
@@ -15,6 +16,7 @@ const NavBar = () => {
     const [profile, setProfile] = useState(false)
     const { user, logOut, loading } = useAuth()
     const axiosSecure = useAxiosSecure()
+    const [carts] = useCarts()
 
     const { data: users = {}, isPending } = useQuery({
         queryKey: ['users', user?.email, axiosSecure],
@@ -31,13 +33,14 @@ const NavBar = () => {
     const routes = <>
     <li><NavLink to='/' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> Home</NavLink> </li>
     <li><NavLink to='/addProduct' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> AddProduct</NavLink> </li>
-    <li><NavLink to='/cart' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> Cart</NavLink> </li>
+    <li><NavLink to='/cart' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> Cart <sup className="bg-red-100 p-1 rounded-md">{carts?.length}</sup></NavLink> </li>
+    <li><NavLink to='/allDataTable' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> AllProduct </NavLink> </li>
     
 
 </>
 
     return (
-        <div className="px-5 py-1 flex justify-between items-center shadow-md h-14">
+        <div className="container mx-auto px-5 py-1 flex justify-between items-center shadow-md h-14">
             {/* dropdown icons  */}
             <div onClick={() => setOpen(!open)} className="lg:hidden text-2xl md:text-3xl">
                 {

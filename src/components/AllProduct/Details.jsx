@@ -18,7 +18,7 @@ const Details = () => {
     const {user, loading} = useAuth()
 
     // data load for details
-    const { data: singleData = {}, isPending } = useQuery({
+    const { data: singleData = {}, isPending , refetch} = useQuery({
         queryKey: ['products', id],
         queryFn: async () => {
             const res = await axiosSecure.get(`/products/${id}`)
@@ -57,6 +57,7 @@ const Details = () => {
         }
         const res = await axiosSecure.post('/carts', data)
         if (res.data.insertedId) {
+            refetch()
             toast.success('Add cart successful')
         }
     }
@@ -84,7 +85,7 @@ const Details = () => {
                             <p className="font-medium bg-slate-50 px-4">{count}</p>
                             <button onClick={handlePlus} className="px-1 flex justify-center items-center"><FiPlus></FiPlus></button>
                         </div>
-                        <button onClick={()=>handleAddCart(singleData)} className="w-fit px-4 py-1 text-center rounded-md bg-gradient-to-r from-orange-500 to-red-500 hover:from-red-400 hover:to-orange-400 text-white font-medium text-sm my-3 mr-7">Add Cart</button>
+                        <button onClick={()=>handleAddCart(singleData)} className="w-fit px-4 py-1 text-center rounded-md bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] text-white font-medium text-sm my-3 mr-7">Add Cart</button>
                     </div>
                 </div>
             </div> 

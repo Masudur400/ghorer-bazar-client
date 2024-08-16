@@ -37,9 +37,9 @@ const SingleCart = ({cart, refetch}) => {
 
     return (
         <div>
-            <div className="md:flex gap-3 justify-center items-center lg:w-2/3 mx-auto bg-gradient-to-r from-orange-100 to-red-100 rounded-md shadow-md p-1 mb-5 mt-10 group">
+            <div className="md:flex gap-3 justify-center items-center lg:w-2/3 mx-auto bg-gradient-to-r from-[#f0d3e2] to-[#dbbbcb] rounded-md shadow-md py-1 px-2 mb-5 mt-10 group">
                 <div className="flex-none">
-                    <img src={productImage} alt="image" className="w-52 md:w-60 mx-auto group-hover:scale-105" />
+                    <img src={productImage} alt="image" className="w-52 md:w-56 mx-auto group-hover:scale-105" />
                 </div>
                 <div className='space-y-1 my-3 flex-grow'>
                     <p className='font-bold'>{productName}</p>
@@ -47,7 +47,7 @@ const SingleCart = ({cart, refetch}) => {
                     <p>Quantity : {quantity}</p>
                     <p className="">{productDetails}</p>
                     <div className="flex justify-end items-center px-2"> 
-                        <button onClick={()=>handleDelete(cart)} className="w-fit px-4 py-1 text-center rounded-md bg-gradient-to-r from-orange-500 to-red-500 hover:from-red-400 hover:to-orange-400 text-white font-medium text-sm my-3 mr-7">Remove</button>
+                        <button onClick={()=>handleDelete(cart)} className="w-fit px-4 py-1 text-center rounded-md bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] text-white font-medium text-sm my-3 mr-7">Remove</button>
                     </div>
                 </div>
             </div>
