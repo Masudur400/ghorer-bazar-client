@@ -19,8 +19,7 @@ const SingleCart = ({cart, refetch}) => {
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
-            if (result.isConfirmed) {
-
+            if (result.isConfirmed) { 
                 axiosSecure.delete(`/carts/${data?._id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
