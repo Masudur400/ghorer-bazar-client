@@ -2,6 +2,7 @@ import { useState } from "react";
 import { GrMenu } from "react-icons/gr";
 import { HiOutlineX } from "react-icons/hi"; 
 import { TbHomeEco } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
 
@@ -41,7 +42,7 @@ const NavBar = () => {
                          <img src="" alt="image" />
                     </div>
                 </div>
-                <button className="btn font-bold max-sm:btn-sm">Login</button>
+                <Link to='/login' className="btn font-bold max-sm:btn-sm text-white bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae]">Login</Link>
             </div>
         </div>
     );

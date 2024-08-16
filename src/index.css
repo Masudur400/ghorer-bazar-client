@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .text{
-  background: linear-gradient(-45deg, #961c59, #ab2b85, #90127d, #a11d58);
+  background: linear-gradient(-45deg, #a94e7c, #7d2e65, #b2289d, #9a0d4d);
   color: transparent;
   background-clip: text;
   background-size: 400% 400%;
