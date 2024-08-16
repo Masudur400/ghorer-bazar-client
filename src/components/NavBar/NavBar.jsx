@@ -2,19 +2,38 @@ import { useState } from "react";
 import { GrMenu } from "react-icons/gr";
 import { HiOutlineX } from "react-icons/hi"; 
 import { TbHomeEco } from "react-icons/tb";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+import useAuth from "../Hooks/useAuth";
+import { GoX } from "react-icons/go";
+import { MdLogout } from "react-icons/md";
 
 const NavBar = () => {
 
     const [open, setOpen] = useState(false)
+    const [profile, setProfile] = useState(false)
+    const { user, logOut, loading } = useAuth()
+    const axiosSecure = useAxiosSecure()
+
+    const { data: users = {}, isPending } = useQuery({
+        queryKey: ['users', user?.email, axiosSecure],
+        enabled: !loading,
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/users/${user?.email}`)
+            return res.data
+        }
+    })
+    const { photo } = users; 
+
+
 
     const routes = <>
-        <li> Home </li>
-        <li> About </li>
-        <li> Contact </li>
-        <li> Blogs </li>
-        <li> Features </li>
-    </>
+    <li><NavLink to='/' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> Home</NavLink> </li>
+    <li><NavLink to='/addProduct' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> AddProduct</NavLink> </li>
+    
+
+</>
 
     return (
         <div className="px-5 py-1 flex justify-between items-center shadow-md h-14">
@@ -31,19 +50,44 @@ const NavBar = () => {
             </div>
 
             {/* menu / routes  */}
-            <ul className={`lg:flex gap-5 left-0 min-w-28  absolute lg:static ${open ? 'top-14 md:top-[58px]' : 'hidden'} bg-gray-50 lg:bg-white p-3 rounded-sm justify-center `}>
+            <ul className={`lg:flex gap-5 left-0 min-w-28 font-medium absolute lg:static ${open ? 'top-14 md:top-[58px]' : 'hidden'} bg-gray-50 lg:bg-white p-3 rounded-sm justify-center `}>
                 {routes}
             </ul>
 
             {/* user image & button  */}
-            <div className="flex max-sm:gap-2 gap-4 justify-center">
+ {/* user image & button  */}
+ {
+                    user ?
+                        <div className="flex max-sm:gap-2 gap-4 justify-center mr-2 lg:mr-6">
+                            <div>
+                                <div className="avatar">
+                                    <div className="max-sm:w-8 w-12 rounded-full border">
+                                        <img src={photo} alt="user image" onClick={() => setProfile(!profile)} />
+                                    </div>
+                                </div>
+                                <ul className={`absolute space-y-5 ${profile ? 'bg-gray-50 md:min-w-32 px-3 py-2 z-[99] font-bold rounded-md right-1 md:right-4' : 'hidden'}`}>
+                                    <li onClick={() => setProfile(!profile)} className="absolute text-2xl  top-0 right-0"> <GoX className="border border-black rounded-full"></GoX></li>
+                                    <div>
+                                        <li onClick={() => setProfile(!profile)}><Link to='/profile' className="hover:text-[#c60e6a]">Profile</Link></li>
+                                        <li onClick={() => logOut()} className="flex gap-1 items-center hover:text-[#c60e6a]">LogOut <MdLogout></MdLogout></li>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                        : <div>
+                            <Link to='/login' className="btn font-bold max-sm:btn-sm text-white bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae]">Login</Link>
+                        </div>
+                }
+
+
+            {/* <div className="flex max-sm:gap-2 gap-4 justify-center">
                 <div className="avatar">
                     <div className="max-sm:w-8 w-12 rounded-full bg-red-100">
                          <img src="" alt="image" />
                     </div>
                 </div>
                 <Link to='/login' className="btn font-bold max-sm:btn-sm text-white bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae]">Login</Link>
-            </div>
+            </div> */}
         </div>
     );
 };

@@ -33,8 +33,7 @@ const Register = () => {
         const name = form.get('name')
         const email = form.get('email')
         const password = form.get('password')
-        const photoFile = form.get('photo');
-        console.table(name, email, password, photoFile)
+        const photoFile = form.get('photo'); 
         const date = new Date()
 
         setUserSuccess('');
