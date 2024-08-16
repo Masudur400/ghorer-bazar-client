@@ -31,6 +31,7 @@ const NavBar = () => {
     const routes = <>
     <li><NavLink to='/' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> Home</NavLink> </li>
     <li><NavLink to='/addProduct' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> AddProduct</NavLink> </li>
+    <li><NavLink to='/cart' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> Cart</NavLink> </li>
     
 
 </>

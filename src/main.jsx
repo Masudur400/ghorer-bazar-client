@@ -21,6 +21,7 @@ import AuthProvider from './components/Provider/AuthProvider.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import AddProduct from './components/AddProduct/AddProduct.jsx';
 import Details from './components/AllProduct/Details.jsx';
+import Cart from './components/Cart/Cart.jsx';
 
 
 const router = createBrowserRouter([
@@ -34,15 +35,19 @@ const router = createBrowserRouter([
       },
       {
         path: '/profile',
-        element:  <Profile></Profile>
+        element: <Profile></Profile>
       },
       {
         path: '/addProduct',
-        element:  <AddProduct></AddProduct>
+        element: <AddProduct></AddProduct>
       },
       {
         path: '/details/:id',
-        element:  <Details></Details>
+        element: <Details></Details>
+      },
+      {
+        path: '/cart',
+        element: <Cart></Cart>
       },
     ]
   },
