@@ -15,27 +15,24 @@ const SingleProduct = ({data}) => {
 
      
 
-    // const handleAddCart = async (phone) => {
+    const handleAddCart = async (singleData) => {
 
-    //     const data = {
-    //         email: user?.email,
-    //         name: user?.displayName,
-    //         productName : phone.productName,
-    //         productBrand : phone.productBrand,
-    //         oldPrice : phone.oldPrice,
-    //         newPrice : phone.newPrice,
-    //         quantity:1,
-    //         productQuantity : phone.productQuantity,
-    //         productImage : phone.productImage,
-    //         productDetails : phone.productDetails,
-    //         productType : phone.productType,
-    //         productAddDate : phone.productAddDate
-    //     }
-    //     const res = await axiosSecure.post('/carts', data)
-    //     if (res.data.insertedId) {
-    //         toast.success('Add cart successful')
-    //     }
-    // }
+        const data = {
+            email: user?.email,
+            name: user?.displayName,
+            productName : singleData.productName, 
+            Price : parseInt(singleData.Price), 
+            quantity: 1,
+            productImage : singleData.productImage,
+            productDetails : singleData.productDetails, 
+            productCategory:singleData.productCategory,
+            productAddDate : singleData.productAddDate
+        }
+        const res = await axiosSecure.post('/carts', data)
+        if (res.data.insertedId) {
+            toast.success('Add cart successful')
+        }
+    }
 
      
 
@@ -53,7 +50,7 @@ const SingleProduct = ({data}) => {
             <div className="divider my-1"></div>
             <div className='flex justify-between items-center'>
                 <Link to={`/details/${_id}`}> <button className="w-fit px-2 py-1 text-center rounded-md bg-gradient-to-r from-orange-500 to-red-500 hover:from-red-400 hover:to-orange-400 text-white font-medium mb-3 text-sm">Details</button></Link>
-                    <button onClick={()=>handleAddCart(phone)} className="w-fit md:px-2 px-1 py-1 text-center rounded-md bg-gradient-to-r from-orange-500 to-red-500 hover:from-red-400 hover:to-orange-400 text-white font-medium text-sm mb-3">AddCart</button>
+                    <button onClick={()=>handleAddCart(data)} className="w-fit md:px-2 px-1 py-1 text-center rounded-md bg-gradient-to-r from-orange-500 to-red-500 hover:from-red-400 hover:to-orange-400 text-white font-medium text-sm mb-3">AddCart</button>
                 </div>
         </div>
         
