@@ -24,6 +24,8 @@ import Details from './components/AllProduct/Details.jsx';
 import Cart from './components/Cart/Cart.jsx';
 import AllProductTable from './components/AllProductTable/AllProductTable.jsx'; 
 import ProductUpdate from './components/AllProductTable/ProductUpdate.jsx';
+import OrderInfo from './components/OrderInfo/OrderInfo.jsx';
+import MyOrder from './components/MyOrder/MyOrder.jsx';
 
 
 const router = createBrowserRouter([
@@ -58,6 +60,14 @@ const router = createBrowserRouter([
       {
         path: '/allDataTable',
         element: <AllProductTable></AllProductTable>
+      },
+      {
+        path: '/orderInfo',
+        element: <OrderInfo></OrderInfo>
+      },
+      {
+        path: '/myOrders',
+        element:  <MyOrder></MyOrder>
       },
     ]
   },
