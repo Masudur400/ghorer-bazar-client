@@ -39,7 +39,7 @@ const SingleProduct = ({ data , refetch}) => {
 
     return ( 
 
-        <div className='flex flex-col p-2 shadow-md rounded-md bg-gradient-to-r from-[#f0d3e2] to-[#dbbbcb] group'>
+        <div className='flex flex-col p-2 shadow-md rounded-md  border group'>
             <ToastContainer></ToastContainer>
             <div>
                 <img src={productImage} alt="" className=' w-40 mx-auto group-hover:scale-105'/>

@@ -41,6 +41,7 @@ const OrderInfo = () => {
         const total = inTotal
         const products = carts.map(cart => cart.productName)
         const productsIds = carts.map(cart => cart._id)
+        const images = carts.map(cart => cart.productImage)
         const date = new Date()
  
 
@@ -51,8 +52,9 @@ const OrderInfo = () => {
                 phone,
                 address,
                 deliveryCharge: shippingMethod,
-                totalPrice: total,
+                totalPrice: total, 
                 products,
+                images,
                 productsIds,
                 orderDate: date,
                 status: 'pending'

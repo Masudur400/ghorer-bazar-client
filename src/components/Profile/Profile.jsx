@@ -103,8 +103,8 @@ const Profile = () => {
             <Helmet>
                 <title>Profile</title>
             </Helmet>
-            <div className="md:w-1/2 lg:w-2/5 mx-auto bg-gradient-to-r from-orange-200 to-red-200 my-4 p-3 rounded-md">
-                <h3 className="text-2xl font-bold text-center text-orange-500 mb-6">Profile</h3>
+            <div className="md:w-1/2 lg:w-2/5 mx-auto bg-[#ebc2d6] my-4 p-3 rounded-md">
+                <h3 className="text-2xl font-bold text-center text mb-6">Profile</h3>
                 <div>
                     <img src={photo} alt="image" className="w-56  h-56 rounded-full mx-auto" />
                     <div className="w-fit mx-auto my-5 space-y-2">
@@ -113,7 +113,7 @@ const Profile = () => {
                         <p><span className="font-bold">Time : </span>{formattedDate}</p>
                     </div>
                     <div className="flex justify-center items-center">
-                        <div onClick={() => handleDataUpdate(users)} className="w-fit mx-auto bg-gradient-to-r from-orange-500 to-red-500 hover:from-red-400 hover:to-orange-400 px-4 py-2 rounded-md text-white font-bold mb-5">
+                        <div onClick={() => handleDataUpdate(users)} className="w-fit mx-auto bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] px-4 py-2 rounded-md text-white font-bold mb-5">
                             <button onClick={() => document.getElementById('my_modal_3').showModal()} >Update Profile</button>
                         </div>
                     </div>
@@ -133,7 +133,7 @@ const Profile = () => {
                         <input type="file" name="photo" id="" className="w-full px-4 py-2 rounded-md border border-orange-500" />
 
                         <div className="flex items-center justify-center mt-5">
-                        <input type="submit" value="Update" className="w-fit bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-md text-white font-bold mb-5" />
+                        <input type="submit" value="Update" className="w-fit bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] px-4 py-2 rounded-md text-white font-bold mb-5" />
                         </div>
                     </form>
                 </div>
