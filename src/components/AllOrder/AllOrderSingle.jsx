@@ -9,7 +9,7 @@ const AllOrderSingle = ({ order, refetch }) => {
     const axiosSecure = useAxiosSecure()
     const [open, setOpen] = useState(false)
 
-    const { _id, name, email, phone, address, totalPrice, products, images, orderDate, status, productsIds, deliveryCharge } = order
+    const { _id, name, email, phone, address, totalPrice, products,orderDate, status, productsIds, deliveryCharge } = order
 
     const date = new Date(orderDate)
     // const formattedDateOnly = date.toLocaleDateString()
@@ -27,7 +27,7 @@ const AllOrderSingle = ({ order, refetch }) => {
             address,
             totalPrice,
             products,
-            images,
+             
             orderDate,
             status: currentStatus,
             deliveryCharge,
@@ -84,7 +84,20 @@ const AllOrderSingle = ({ order, refetch }) => {
                 <p> <span className='font-medium'>Total Price :</span> {totalPrice} tk</p>
             </div>
             <div className="divider my-0"></div>
-            <div className='space-y-2 flex-grow'>
+
+            <div className='flex-grow '>
+                {
+                    products.map((product, idx) => <div className='flex items-center gap-1 space-y-3 border-b'>
+                        <p className='flex justify-center items-center'>{idx+1} <span>.</span> </p>
+                        <img src={product.image} alt="image" className='w-12 h-12'/>
+                        <p>{product.productName} <span className='ml-2 text-red-500'> ({product.quantity})</span></p>
+                         
+                    </div>)
+                }
+
+            </div>
+
+            {/* <div className='space-y-2 flex-grow'>
                 <div className='flex gap-1 flex-wrap'>
                     {
                         images.map((image, idx) => <div key={idx} className='flex justify-center items-center gap-1 '>
@@ -101,7 +114,7 @@ const AllOrderSingle = ({ order, refetch }) => {
                         </div>)
                     }
                 </div>
-            </div>
+            </div> */}
 
             <div className="divider my-0"></div>
             <div className='flex justify-between items-center my-2'>

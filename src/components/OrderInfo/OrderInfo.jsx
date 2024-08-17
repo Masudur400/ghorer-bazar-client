@@ -19,6 +19,8 @@ const OrderInfo = () => {
     const totalPrice = carts.reduce((total, product) => total + product.Price, 0);
     const inTotal = parseInt(totalPrice) + parseInt(serviceCharge)
 
+    
+
     const handleYesNo = element => {
         if (element === '70') {
             setServiceCharge(70);
@@ -33,6 +35,17 @@ const OrderInfo = () => {
 
     }
 
+    const idCarts = carts.map(cart => {
+        return {
+            productName: cart.productName,
+            productImage: cart.productImage,
+            quantity : cart.quantity,
+            image: cart.productImage
+        };
+    });
+    
+    console.log(idCarts);
+
     const handleOrder = async (e) => {
         e.preventDefault()
         const form = new FormData(e.currentTarget)
@@ -41,9 +54,10 @@ const OrderInfo = () => {
         const address = form.get('address')
         const shippingMethod = serviceCharge
         const total = inTotal
-        const products = carts.map(cart => cart.productName)
+        const products = idCarts
+        // const products = carts.map(cart => cart.productName)
         const productsIds = carts.map(cart => cart._id)
-        const images = carts.map(cart => cart.productImage)
+        // const images = carts.map(cart => cart.productImage)
         const date = new Date()
  
 
@@ -56,7 +70,7 @@ const OrderInfo = () => {
                 deliveryCharge: shippingMethod,
                 totalPrice: total, 
                 products,
-                images,
+                // images,
                 productsIds,
                 orderDate: date,
                 status: 'pending'

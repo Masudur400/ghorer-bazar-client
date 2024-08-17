@@ -37,9 +37,7 @@ const AllUsers = () => {
             refetch() 
             toast.success('role update') 
             setOpen(!open)
-        }
-
-
+        } 
     }
 
     return (
@@ -96,10 +94,7 @@ const AllUsers = () => {
                                                         <input type="submit" value="Done" className="w-fit md:px-2 px-1 py-1 text-center rounded-md bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] text-white font-normal text-[10px]" />
                                                     </div>
                                                 </form>
-                                        }
-
-
-
+                                        }  
                                     </td>
 
                                 </tr>)

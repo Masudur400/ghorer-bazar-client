@@ -4,9 +4,9 @@ import useAxiosSecure from '../Hooks/useAxiosSecure';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const SingleOrder = ({ order , refetch}) => {
+const SingleOrder = ({ order, refetch }) => {
     const axiosSecure = useAxiosSecure()
-    const { name, email, phone, address, totalPrice, products, images, orderDate, status } = order
+    const { name, email, phone, address, totalPrice, products, orderDate, status } = order
 
     const date = new Date(orderDate)
     // const formattedDateOnly = date.toLocaleDateString()
@@ -51,7 +51,18 @@ const SingleOrder = ({ order , refetch}) => {
                 <p> <span className='font-medium'>Total Price :</span> {totalPrice} tk</p>
             </div>
             <div className="divider my-0"></div>
-            <div className='space-y-2 flex-grow'>
+            <div className='flex-grow '>
+                {
+                    products.map((product, idx) => <div className='flex items-center gap-1 space-y-3 border-b'>
+                        <p className='flex justify-center items-center'>{idx+1} <span>.</span> </p>
+                        <img src={product.image} alt="image" className='w-12 h-12'/>
+                        <p>{product.productName} <span className='ml-2 text-red-500'> ({product.quantity})</span></p>
+                         
+                    </div>)
+                }
+
+            </div>
+            {/* <div className='space-y-2 flex-grow'>
                 <div className='flex gap-1 flex-wrap'>
                     {
                         images.map((image, idx) => <div key={idx} className='flex justify-center items-center gap-1 '>
@@ -68,16 +79,16 @@ const SingleOrder = ({ order , refetch}) => {
                         </div>)
                     }
                 </div>
-            </div>
+            </div> */}
             <div className="divider my-0"></div>
             <div className='flex justify-center items-center my-2'>
-            {
-                status === 'processing' || status === 'complete' ?
-                <button onClick={()=> toast(`order ${status}. can not cancel.`)} className='bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] text-white font-medium px-2 py-1 rounded-md'>Order Cancel</button>:
-                <button onClick={()=> handleDelete(order)} className='bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] text-white font-medium px-2 py-1 rounded-md'>Order Cancel</button>
-            }
+                {
+                    status === 'processing' || status === 'complete' ?
+                        <button onClick={() => toast(`order ${status}. can not cancel.`)} className='bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] text-white font-medium px-2 py-1 rounded-md'>Order Cancel</button> :
+                        <button onClick={() => handleDelete(order)} className='bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] text-white font-medium px-2 py-1 rounded-md'>Order Cancel</button>
+                }
             </div>
-<ToastContainer></ToastContainer>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
