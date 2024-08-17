@@ -5,12 +5,14 @@ import useAuth from '../Hooks/useAuth';
 import { IoIosArrowDown } from 'react-icons/io';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
+import { useNavigate } from 'react-router-dom';
 
 const OrderInfo = () => {
 
     const { user } = useAuth()
     const [carts, refetch] = useCarts()
     const axiosSecure = useAxiosSecure()
+    const navigate = useNavigate()
     const [serviceCharge, setServiceCharge] = useState(0)
     const [location, setLocation] = useState('Service Charge')
     const [open, setOpen] = useState(false)
@@ -69,6 +71,7 @@ const OrderInfo = () => {
                     icon: "success"
                 });
                 refetch()
+                navigate('/myOrders')
             }
         } catch (error) {
             console.error('Error :', error);
@@ -77,7 +80,7 @@ const OrderInfo = () => {
 
     return (
         <div>
-            <div className="lg:w-2/4 md:w-2/3 mx-auto my-5 md:p-5 p-3 rounded-lg bg-gradient-to-r from-[#e4b4cc] to-[#f0a8cc] shadow-md max-sm:mx-4 ">
+            <div className="lg:w-2/4 md:w-2/3 mx-auto my-5 md:p-5 p-3 rounded-lg  shadow-md max-sm:mx-4 ">
                 <Helmet>
                     <title>Order</title>
                 </Helmet>

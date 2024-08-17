@@ -22,7 +22,7 @@ const MyOrder = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-10'>
              {
                 orders.length?
-                orders.map(order => <SingleOrder key={order._id} order={order}></SingleOrder>):
+                orders.map(order => <SingleOrder key={order._id} order={order} refetch={refetch}></SingleOrder>):
                 'no data available'
              }
         </div>

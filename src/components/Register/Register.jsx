@@ -120,11 +120,9 @@ const Register = () => {
                             text: "login successful!",
                             icon: "success"
                         });
-                    }
-                    
-                    navigate(location?.state ? location.state : '/')
-                    // window.location.reload()
+                    } 
                 })
+                navigate(location?.state ? location.state : '/')
                 .catch(err=>{
                     console.log(err.message)
                 })

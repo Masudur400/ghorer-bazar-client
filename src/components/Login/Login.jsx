@@ -60,10 +60,9 @@ import Swal from 'sweetalert2';
                                 text: "login successful!",
                                 icon: "success"
                             });
-                        }
-
-                        navigate(location?.state ? location.state : '/')
+                        } 
                     })
+                    navigate(location?.state ? location.state : '/')
                     .catch(err => {
                         console.log(err.message)
                     })

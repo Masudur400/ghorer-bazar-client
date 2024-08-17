@@ -27,6 +27,7 @@ import ProductUpdate from './components/AllProductTable/ProductUpdate.jsx';
 import OrderInfo from './components/OrderInfo/OrderInfo.jsx';
 import MyOrder from './components/MyOrder/MyOrder.jsx';
 import AllOrder from './components/AllOrder/AllOrder.jsx';
+import AllUsers from './components/AllUsers/AllUsers.jsx';
 
 
 const router = createBrowserRouter([
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
       {
         path: '/allOrders',
         element:  <AllOrder></AllOrder>
+      },
+      {
+        path: '/allUsers',
+        element: <AllUsers></AllUsers>
       },
     ]
   },

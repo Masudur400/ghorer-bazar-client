@@ -31,12 +31,13 @@ const NavBar = () => {
 
 
     const routes = <>
-    <li><NavLink to='/' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> Home</NavLink> </li>
-    <li><NavLink to='/addProduct' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> AddProduct</NavLink> </li>
+    <li><NavLink to='/' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> Home</NavLink> </li> 
     <li><NavLink to='/cart' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> Cart <sup className="bg-red-100 p-1 rounded-md">{carts?.length}</sup></NavLink> </li>
     <li><NavLink to='/myOrders' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}>MyOrders</NavLink> </li>
+    <li><NavLink to='/addProduct' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> AddProduct</NavLink> </li>
     <li><NavLink to='/allOrders' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}>AllOrders</NavLink> </li>
     <li><NavLink to='/allDataTable' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> AllProduct </NavLink> </li>
+    <li><NavLink to='/allUsers' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> AllUsers </NavLink> </li>
     
 
 </>
