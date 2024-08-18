@@ -84,8 +84,8 @@ const OrderInfo = () => {
                     text: "Order successful!",
                     icon: "success"
                 });
-                refetch()
                 navigate('/myOrders')
+                refetch()
             }
         } catch (error) {
             console.error('Error :', error);
