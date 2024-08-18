@@ -54,7 +54,7 @@ const Cart = () => {
             </div>
             <div>
                 {
-                    carts.map(cart => <SingleCart key={cart._id} cart={cart} refetch={refetch}></SingleCart>)
+                    carts?.map(cart => <SingleCart key={cart._id} cart={cart} refetch={refetch}></SingleCart>)
                 }
             </div>
 

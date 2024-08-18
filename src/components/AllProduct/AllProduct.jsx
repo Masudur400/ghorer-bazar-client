@@ -81,8 +81,8 @@ const AllProduct = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 my-10">
             {
                 products.length?
-                products.map(data => <SingleProduct key={data._id} data={data} refetch={refetch}></SingleProduct>)
-                : allData.map(data => <SingleProduct key={data._id} data={data} refetch={refetch}></SingleProduct>)
+                products?.map(data => <SingleProduct key={data._id} data={data} refetch={refetch}></SingleProduct>)
+                : allData?.map(data => <SingleProduct key={data._id} data={data} refetch={refetch}></SingleProduct>)
             }
             </div>
         </div>

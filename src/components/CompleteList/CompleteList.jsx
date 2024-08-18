@@ -22,7 +22,7 @@ const CompleteList = () => {
 
                 {
                     allData.length ?
-                        allData.map(data => <SingleCompleteList key={data._id} data={data} refetch={refetch}></SingleCompleteList>) :
+                        allData?.map(data => <SingleCompleteList key={data._id} data={data} refetch={refetch}></SingleCompleteList>) :
                         'data not available'
                 }
             </div>

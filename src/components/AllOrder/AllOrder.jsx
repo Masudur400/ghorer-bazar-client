@@ -37,7 +37,7 @@ const AllOrder = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-10'>
                 {
                     orders.length ?
-                        orders.map(order => <AllOrderSingle key={order._id} order={order} refetch={refetch}></AllOrderSingle>) :
+                        orders?.map(order => <AllOrderSingle key={order._id} order={order} refetch={refetch}></AllOrderSingle>) :
                         'no data available'
                 }
             </div>

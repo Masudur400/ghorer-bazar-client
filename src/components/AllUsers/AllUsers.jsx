@@ -25,7 +25,7 @@ const AllUsers = () => {
         <div className='my-10 md:px-6 overflow-x-auto'>
             {
                 allUser.length ?
-                    allUser.map((user, idx) => <SingleUser key={user._id} idx={idx} user={user} refetch={refetch}></SingleUser>) :
+                    allUser?.map((user, idx) => <SingleUser key={user._id} idx={idx} user={user} refetch={refetch}></SingleUser>) :
                     'data not available'
             }
         </div>

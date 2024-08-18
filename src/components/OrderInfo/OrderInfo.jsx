@@ -35,7 +35,7 @@ const OrderInfo = () => {
 
     }
 
-    const idCarts = carts.map(cart => {
+    const idCarts = carts?.map(cart => {
         return {
             productName: cart.productName,
             productImage: cart.productImage,
@@ -56,7 +56,7 @@ const OrderInfo = () => {
         const total = inTotal
         const products = idCarts
         // const products = carts.map(cart => cart.productName)
-        const productsIds = carts.map(cart => cart._id)
+        const productsIds = carts?.map(cart => cart._id)
         // const images = carts.map(cart => cart.productImage)
         const date = new Date()
  

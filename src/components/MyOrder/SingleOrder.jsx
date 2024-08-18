@@ -51,7 +51,7 @@ const SingleOrder = ({ order, refetch }) => {
             <div className="divider my-0"></div>
             <div className='flex-grow '>
                 {
-                    products.map((product, idx) => <div className='flex items-center gap-1 space-y-3 border-b'>
+                    products?.map((product, idx) => <div className='flex items-center gap-1 space-y-3 border-b'>
                         <p className='flex justify-center items-center'>{idx+1} <span>.</span> </p>
                         <img src={product.image} alt="image" className='w-12 h-12'/>
                         <p>{product.productName} <span className='ml-2 text-red-500'> ({product.quantity})</span></p>
