@@ -74,7 +74,7 @@ import Swal from 'sweetalert2';
     }
 
     return (
-        <div className="lg:w-1/3 md:w-1/2 mx-auto my-20 md:p-5 p-3 rounded-lg bg-gradient-to-r from-[#e4b4cc] to-[#f0a8cc] shadow-md max-sm:mx-4 ">
+        <div className="lg:w-1/3 md:w-1/2 mx-auto my-20 md:p-5 p-3 rounded-lg  border shadow-md max-sm:mx-4 ">
         <Helmet>
             <title>Login</title>
         </Helmet>
@@ -111,7 +111,7 @@ import Swal from 'sweetalert2';
         <div className="divider my-5"></div>
         <div className="mb-t">
             <div>
-                <button onClick={handleGoogleLogin} className=" p-3 bg-white rounded-xl font-bold"> <FcGoogle className="text-3xl"></FcGoogle></button>
+                <button onClick={handleGoogleLogin} className="border p-3 bg-white rounded-xl font-bold"> <FcGoogle className="text-3xl"></FcGoogle></button>
 
             </div>
         </div>

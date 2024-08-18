@@ -139,7 +139,7 @@ const Register = () => {
             <title>Register</title>
         </Helmet>
 
-        <div data-aos="zoom-in-down" className="w-4/5 lg:w-1/3 md:w-2/3 mx-auto bg-gradient-to-r from-[#e4b4cc] to-[#f0a8cc] shadow-xl p-5 rounded-lg my-20">
+        <div data-aos="zoom-in-down" className="w-4/5 lg:w-1/3 md:w-2/3 mx-auto border shadow-xl p-5 rounded-lg my-20">
 
             <div className="flex justify-end">
                 <Link to='/' className="p-1 border-2 border-orange-500 rounded-full"><FaXmark className="md:text-3xl text-[#961c59] my-0"></FaXmark></Link>
@@ -190,7 +190,7 @@ const Register = () => {
             <div className="divider my-5"></div>
             <div className="mb-t">
                 <div>
-                    <button onClick={handleGoogleLogin} className=" p-3 bg-white rounded-xl font-bold"> <FcGoogle className="text-3xl"></FcGoogle></button>
+                    <button onClick={handleGoogleLogin} className=" p-3 border bg-white rounded-xl font-bold"> <FcGoogle className="text-3xl"></FcGoogle></button>
 
                 </div> 
             </div>
