@@ -13,15 +13,13 @@ const Cart = () => {
 
     const axiosSecure = useAxiosSecure()
     const {user, loading} = useAuth()
-    const [carts, refetch] = useCarts()
+    const [carts,isPending, refetch] = useCarts()
 
-    // const {data : carts = [], isPending, refetch} = useQuery({
-    //     queryKey:['carts', user?.email, axiosSecure],
-    //     queryFn: async ()=>{
-    //         const res = await axiosSecure.get(`/carts/${user?.email}`)
-    //         return res.data
-    //     }
-    // })
+    if (isPending) {
+        return <div className='flex justify-center items-center h-screen'>
+            <span className="loading loading-spinner loading-lg text-[#c60e6a]"></span>
+        </div>
+    }
     
     const totalPrice = carts.reduce((total, product) => total + product.Price, 0);
 

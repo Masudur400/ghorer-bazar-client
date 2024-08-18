@@ -37,8 +37,8 @@ const Home = () => {
             {
             role === 'Admin' || role === 'Moderator' ?
             <>
-            <div>
-                <img src={p2} alt="" className='w-full mt-5 md:w-1/3 mx-auto border' /> 
+            <div className=''>
+                <img src={p2} alt="" className='w-full mt-5 md:w-1/3 mx-auto border shadow-lg shadow-[#c60e6a] ' /> 
             </div>
             
             </> 

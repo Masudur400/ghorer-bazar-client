@@ -25,6 +25,12 @@ const Details = () => {
         }
     })
 
+    if (isPending) {
+        return <div className='flex justify-center items-center h-screen'>
+            <span className="loading loading-spinner loading-lg text-[#c60e6a]"></span>
+        </div>
+    }
+
     const {_id, productName, Price, productImage, productDetails, productCategory, productAddDate } = singleData 
      
 

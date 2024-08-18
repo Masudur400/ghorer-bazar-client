@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const axiosSecure = axios.create({
-    baseURL:import.meta.env.VITE_serverUrl
+    // baseURL:import.meta.env.VITE_serverUrl
+    baseURL:'https://ghorer-bazar-server.vercel.app'
 })
 
 const useAxiosSecure = () => {

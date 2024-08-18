@@ -18,7 +18,11 @@ const AllUsers = () => {
         }
     })
 
-
+    if (isPending) {
+        return <div className='flex justify-center items-center h-screen'>
+            <span className="loading loading-spinner loading-lg text-[#c60e6a]"></span>
+        </div>
+    }
    
 
     return (

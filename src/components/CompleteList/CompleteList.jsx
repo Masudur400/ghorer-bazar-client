@@ -15,6 +15,12 @@ const CompleteList = () => {
         }
     })
 
+    if (isPending) {
+        return <div className='flex justify-center items-center h-screen'>
+            <span className="loading loading-spinner loading-lg text-[#c60e6a]"></span>
+        </div>
+    }
+
     return (
         <div>
             <h2 className="text-xl font-bold my-4 text text-center"><span>Total Complete Order :</span> <span>{allData?.length}</span></h2>

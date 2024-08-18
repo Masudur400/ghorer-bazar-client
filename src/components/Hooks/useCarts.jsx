@@ -15,7 +15,7 @@ const useCarts = () => {
         }
     })
 
-    return  [carts, refetch]
+    return  [carts,isPending, refetch]
 };
 
 export default useCarts;

@@ -69,7 +69,7 @@ const SingleCompleteList = ({data, refetch}) => {
 
         <div className="divider my-0"></div>
         <div className='flex justify-center items-center my-2'>  
-            <button onClick={()=>handleDelete(_id)} className='bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] text-white font-medium px-2 py-1 rounded-md'>Delete Order</button>
+            <button onClick={()=>handleDelete(_id)} className='bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] text-white font-medium px-2 py-1 rounded-md'>Delete Data</button>
         </div>
 
 

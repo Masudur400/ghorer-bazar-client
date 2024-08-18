@@ -1,8 +1,25 @@
-# React + Vite
+# well Come To Ghorer Bazar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+* live link : https://ghorer-bazar.web.app/
+* client site github : https://github.com/Masudur400/ghorer-bazar-client
+* server site github : https://github.com/Masudur400/ghorer-bazar-server
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+# impotent for server
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "index.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "index.js",
+        "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+      }
+    ]
+  }

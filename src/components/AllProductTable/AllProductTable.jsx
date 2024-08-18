@@ -16,6 +16,12 @@ const AllProductTable = () => {
         }
     })
 
+    if (isPending) {
+        return <div className='flex justify-center items-center h-screen'>
+            <span className="loading loading-spinner loading-lg text-[#c60e6a]"></span>
+        </div>
+    }
+
     const handleDelete = data => {
         Swal.fire({
             title: "Are you sure?",

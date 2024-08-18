@@ -17,23 +17,16 @@ const AllOrder = () => {
         }
     })
 
-    // const handleSearch = e => {
-    //     e.preventDefault()
-    //     const form = new FormData(e.currentTarget)
-    //     // const form = new FormData(e.currentTarget)
-    //     const searchText = form.get('search')
-    //     setSearch(searchText)
-    // }
+    if (isPending) {
+        return <div className='flex justify-center items-center h-screen'>
+            <span className="loading loading-spinner loading-lg text-[#c60e6a]"></span>
+        </div>
+    }
 
     return (
 
         <div>
-            {/* <div>
-                <form onSubmit={handleSearch} className="flex justify-center items-center my-4">
-                    <input type="text" name="search" id="" placeholder="Search...." className="px-2 py-1 border border-[#df0974]" />
-                    <input type="submit" value="Search" className="px-2 py-1 border border-[#df0974]  bg-[#df0974] text-white" />
-                </form>
-            </div> */}
+             
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-10'>
                 {
                     orders.length ?

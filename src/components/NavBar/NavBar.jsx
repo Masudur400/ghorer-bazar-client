@@ -20,8 +20,8 @@ const NavBar = () => {
     const axiosSecure = useAxiosSecure()
     const [carts] = useCarts()
 
-    const [isAdmin] = useAdmin()
-    const [isModerator] = useModerator()
+    const [isAdmin , isAdminLoading] = useAdmin()
+    const [isModerator, isModeratorLoading] = useModerator()
 
     const { data: users = {}, isPending } = useQuery({
         queryKey: ['users', user?.email, axiosSecure],
@@ -41,7 +41,7 @@ const NavBar = () => {
             .catch()
     }
 
-    if (loading || isPending) {
+    if (loading || isPending || isAdminLoading || isModeratorLoading) {
         return <div className='flex justify-center items-center '>
             <span className="loading loading-dots loading-xs text-[#c60e6a]"></span>
             {/* <span className="loading loading-spinner loading-lg text-[#c60e6a]"></span> */}

@@ -128,26 +128,7 @@ const AllOrderSingle = ({ order, refetch }) => {
                     </div>)
                 }
 
-            </div>
-
-            {/* <div className='space-y-2 flex-grow'>
-                <div className='flex gap-1 flex-wrap'>
-                    {
-                        images.map((image, idx) => <div key={idx} className='flex justify-center items-center gap-1 '>
-                            <p>{idx + 1}.</p>
-                            <img src={image} alt="image" className='w-12 h-12 border' />
-                        </div>)
-                    }
-                </div>
-                <div className='flex flex-col space-y-3 '>
-                    {
-                        products.map((product, idx) => <div key={idx} className='flex gap-1'>
-                            <p>{idx + 1}.</p>
-                            <p className='' >{product}</p>
-                        </div>)
-                    }
-                </div>
-            </div> */}
+            </div>  
 
             <div className="divider my-0"></div>
             <div className='flex justify-between items-center my-2'>

@@ -30,7 +30,11 @@ const Profile = () => {
     })
     const {  name, photo, email, role, userCreateTime } = users;
 
-
+    if (isPending) {
+        return <div className='flex justify-center items-center h-screen'>
+            <span className="loading loading-spinner loading-lg text-[#c60e6a]"></span>
+        </div>
+    }
 
     const date = new Date(userCreateTime)
     // const formattedDateOnly = date.toLocaleDateString()
