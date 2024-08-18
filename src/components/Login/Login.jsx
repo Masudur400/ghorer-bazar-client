@@ -31,7 +31,7 @@ import Swal from 'sweetalert2';
                         text: "login successful!",
                         icon: "success"
                     });
-                    navigate(location?.state ? location.state : '/')
+                    navigate('/')
                 }
             })
             .catch(err => {
@@ -62,7 +62,7 @@ import Swal from 'sweetalert2';
                             });
                         } 
                     })
-                    navigate(location?.state ? location.state : '/')
+                    navigate('/')
                     .catch(err => {
                         console.log(err.message)
                     })

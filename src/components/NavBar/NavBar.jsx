@@ -41,6 +41,13 @@ const NavBar = () => {
             .catch()
     }
 
+    if (loading || isPending) {
+        return <div className='flex justify-center items-center '>
+            <span className="loading loading-dots loading-xs text-[#c60e6a]"></span>
+            {/* <span className="loading loading-spinner loading-lg text-[#c60e6a]"></span> */}
+        </div>
+    }
+
 
 
     const routes = <>
@@ -48,12 +55,14 @@ const NavBar = () => {
         {
             isAdmin ?
                 <>
+                <li><NavLink to='/' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> Home</NavLink> </li>
                     <li><NavLink to='/addProduct' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> AddProduct</NavLink> </li>
                     <li><NavLink to='/allOrders' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}>AllOrders</NavLink> </li>
                     <li><NavLink to='/allDataTable' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> AllProduct </NavLink> </li>
                     <li><NavLink to='/allUsers' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> AllUsers </NavLink> </li></>
                 : isModerator ?
                     <>
+                    <li><NavLink to='/' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> Home</NavLink> </li>
                         <li><NavLink to='/addProduct' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> AddProduct</NavLink> </li>
                         <li><NavLink to='/allOrders' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}>AllOrders</NavLink> </li>
                         <li><NavLink to='/allDataTable' onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? 'text-[#961c59] underline font-bold' : 'hover:text-[#961c59]'}> AllProduct </NavLink> </li>

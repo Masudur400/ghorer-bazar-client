@@ -1,6 +1,7 @@
 import axios from "axios";
 import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const axiosSecure = axios.create({
     baseURL:import.meta.env.VITE_serverUrl
@@ -11,6 +12,7 @@ const useAxiosSecure = () => {
     const { logOut ,loading, setLoading} = useAuth()
     const navigate = useNavigate()
 
+   useEffect(()=>{
     axiosSecure.interceptors.request.use(function (config) {
         const token = localStorage.getItem('access-token')
         config.headers.authorization = `Bearer ${token}`
@@ -30,6 +32,7 @@ const useAxiosSecure = () => {
         }
         return Promise.reject(error)
     })
+   },[])
 
     return  axiosSecure ;
 };
