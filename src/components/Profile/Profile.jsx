@@ -79,7 +79,7 @@ const Profile = () => {
             if (res.data.modifiedCount > 0) { 
                 Swal.fire({
                     title: "success !",
-                    text: `Profile update successfully !`,
+                    text: `Profile update successful !`,
                     icon: "success"
                 });
                 refetch()

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import useAxiosSecure from '../Hooks/useAxiosSecure';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; 
+import useAxiosSecure from '../Hooks/useAxiosSecure'; 
 import Swal from 'sweetalert2';
 
 const AllOrderSingle = ({ order, refetch }) => {
@@ -26,8 +24,7 @@ const AllOrderSingle = ({ order, refetch }) => {
             phone,
             address,
             totalPrice,
-            products,
-             
+            products, 
             orderDate,
             status: currentStatus,
             deliveryCharge,
@@ -35,8 +32,14 @@ const AllOrderSingle = ({ order, refetch }) => {
         } 
         const res = await axiosSecure.patch(`/orders/patch/${_id}`, data) 
         if (res.data.modifiedCount > 0) {
-            refetch()
-            toast.success('status update')
+            refetch() 
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "status update",
+                showConfirmButton: false,
+                timer: 500
+              });
             setOpen(!open)
         } 
     }
@@ -71,7 +74,7 @@ const AllOrderSingle = ({ order, refetch }) => {
 
 
         <div className='flex flex-col  border rounded-md shadow-md p-3'>
-            <ToastContainer></ToastContainer>
+            
             <div>
                 <p><span className='font-medium'>Name :</span> {name}</p>
                 <p> <span className='font-medium'>Email :</span> {email}</p>

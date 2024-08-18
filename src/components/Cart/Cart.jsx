@@ -3,8 +3,9 @@ import useAxiosSecure from "../Hooks/useAxiosSecure";
 import useAuth from "../Hooks/useAuth";
 import SingleCart from "./SingleCart";
 import useCarts from "../Hooks/useCarts";
-import { Link } from "react-router-dom";
-import { toast, ToastContainer } from 'react-toastify';
+import { Link } from "react-router-dom"; 
+import Swal from "sweetalert2";
+ 
 
 
 
@@ -28,7 +29,7 @@ const Cart = () => {
 
     return (
         <div>
-            <ToastContainer></ToastContainer>
+              
             <Helmet>
                 <title>MyCart</title>
             </Helmet> 
@@ -40,7 +41,13 @@ const Cart = () => {
                     carts.length?
                     <Link to='/orderInfo'>
                     <button  className="w-fit px-2 py-1 text-center rounded-md bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] text-white font-medium">Order Now : {totalPrice} tk</button></Link> :
-                    <button onClick={()=>{toast('please add one item cart')}}  className="w-fit px-2 py-1 text-center rounded-md bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] text-white font-medium">Order Now : {totalPrice} tk</button>
+                    <button onClick={()=>{ Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "No product available in cart",
+                        showConfirmButton: false,
+                        timer: 500
+                      }); }}  className="w-fit px-2 py-1 text-center rounded-md bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] text-white font-medium">Order Now : {totalPrice} tk</button>
                  }
                   
                 </div>

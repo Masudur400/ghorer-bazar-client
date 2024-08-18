@@ -1,8 +1,6 @@
 import React from 'react';
 import Swal from 'sweetalert2';
-import useAxiosSecure from '../Hooks/useAxiosSecure';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import useAxiosSecure from '../Hooks/useAxiosSecure';  
 
 const SingleOrder = ({ order, refetch }) => {
     const axiosSecure = useAxiosSecure()
@@ -84,11 +82,17 @@ const SingleOrder = ({ order, refetch }) => {
             <div className='flex justify-center items-center my-2'>
                 {
                     status === 'processing' || status === 'complete' ?
-                        <button onClick={() => toast(`order ${status}. can not cancel.`)} className='bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] text-white font-medium px-2 py-1 rounded-md'>Order Cancel</button> :
+                        <button onClick={() =>  Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title:  `status ${status}. can not cancel`,
+                            showConfirmButton: false,
+                            timer: 500
+                          })} className='bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] text-white font-medium px-2 py-1 rounded-md'>Order Cancel</button> :
                         <button onClick={() => handleDelete(order)} className='bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] text-white font-medium px-2 py-1 rounded-md'>Order Cancel</button>
                 }
             </div>
-            <ToastContainer></ToastContainer>
+              
         </div>
     );
 };

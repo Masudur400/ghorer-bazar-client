@@ -2,12 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom"; 
 import { Helmet } from "react-helmet"; 
 import { useState } from "react";  
-import { HiMinus } from "react-icons/hi";
-import 'react-toastify/dist/ReactToastify.css';
-import { toast, ToastContainer } from "react-toastify"; 
+import { HiMinus } from "react-icons/hi"; 
 import { FiPlus } from "react-icons/fi";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import useAuth from "../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 
 
@@ -58,7 +57,13 @@ const Details = () => {
         const res = await axiosSecure.post('/carts', data)
         if (res.data.insertedId) {
             refetch()
-            toast.success('Add cart successful')
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Add cart successful",
+                showConfirmButton: false,
+                timer: 500
+              }); 
         }
     }
 
@@ -68,8 +73,7 @@ const Details = () => {
         <div className="my-10">
             <Helmet>
                 <title>{productName}</title>
-            </Helmet>
-            <ToastContainer></ToastContainer>
+            </Helmet> 
 
             <div className="md:flex gap-3 justify-center items-center lg:w-2/3 mx-auto  border rounded-md shadow-md p-1">
                 <div className="flex-none">

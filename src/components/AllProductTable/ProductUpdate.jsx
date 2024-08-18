@@ -68,7 +68,7 @@ const ProductUpdate = () => {
                         refetch()
                         Swal.fire({
                             title: "Success!",
-                            text: "Product update successfully!",
+                            text: "Product update successful!",
                             icon: "success"
                         });
                          navigate('/allDataTable')
@@ -100,8 +100,21 @@ const ProductUpdate = () => {
                         <input type="text" name="productName" defaultValue={productName} id="" className="border-2 rounded-md w-full text-sm md:text-base px-4 md:py-1 mb-2" />
                     </div> 
                     <div>
-                        <p className="font-semibold">Product Category</p>
-                        <input type="text" defaultValue={productCategory}  name="productCategory"  id="" className="border-2 rounded-md w-full text-sm md:text-base px-4 md:py-1 mb-2" />
+                        {/* <p className="font-semibold">Product Category</p>
+                        <input type="text" defaultValue={productCategory}  name="productCategory"  id="" className="border-2 rounded-md w-full text-sm md:text-base px-4 md:py-1 mb-2" /> */}
+                        <div>
+                            <p className="font-semibold"> Category</p>
+                            {/* <input type="text" name="productCategory" placeholder="Product Type" id="" className="border-2 rounded-md w-full text-sm md:text-base px-4 md:py-1 mb-2" /> */}
+                            <select name="productCategory" defaultValue={productCategory} id="" className="border-2 rounded-md w-full text-sm md:text-base px-4 md:py-1 mb-2">
+                                <option disabled selected value="">Select One</option>
+                                <option value="SarishaOil">Sarisha Oil</option>
+                                <option value="Ghee(ঘি)">Ghee (ঘি)</option>
+                                <option value="Dates(খেজুর)">Dates (খেজুর)</option>
+                                <option value="Honey">Honey</option>
+                                <option value="HoneyNuts">Honey Nuts</option>
+                                <option value="Nuts&Seeds(বাদাম এবং বীজ)">Nuts & Seeds (বাদাম এবং বীজ)</option>
+                            </select>
+                        </div>
                     </div>
                     <div>
                         <p className="font-semibold">Price</p>

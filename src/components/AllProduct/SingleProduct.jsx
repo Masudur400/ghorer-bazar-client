@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom';
-import 'react-toastify/dist/ReactToastify.css';
-import { toast, ToastContainer } from 'react-toastify';
+import { Link } from 'react-router-dom'; 
 import useAxiosSecure from '../Hooks/useAxiosSecure';
 import useAuth from '../Hooks/useAuth';
+import Swal from 'sweetalert2';
 
 
 const SingleProduct = ({ data , refetch}) => {
@@ -31,7 +30,13 @@ const SingleProduct = ({ data , refetch}) => {
         const res = await axiosSecure.post('/carts', data)
         if (res.data.insertedId) {
             refetch()
-            toast.success('Add cart successful')
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Add cart successful",
+                showConfirmButton: false,
+                timer: 500
+              }); 
         }
     }
 
@@ -40,7 +45,7 @@ const SingleProduct = ({ data , refetch}) => {
     return ( 
 
         <div className='flex flex-col p-2 shadow-md rounded-md  border group'>
-            <ToastContainer></ToastContainer>
+             
             <div>
                 <img src={productImage} alt="" className=' w-40 mx-auto group-hover:scale-105'/>
             </div>
