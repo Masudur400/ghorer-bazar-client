@@ -32,6 +32,7 @@ import PrivetRoute from './SecureRoute/PrivetRoute.jsx';
 import AdminRoute from './SecureRoute/AdminRoute.jsx';
 import AdminAndModeratorRoute from './SecureRoute/AdminAndModeratorRoute.jsx';
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
+import CompleteList from './components/CompleteList/CompleteList.jsx';
 
 
 const router = createBrowserRouter([
@@ -113,6 +114,14 @@ const router = createBrowserRouter([
         element: <PrivetRoute>
           <AdminRoute>
           <AllUsers></AllUsers>
+          </AdminRoute>
+        </PrivetRoute>
+      },
+      {
+        path: '/completeList',
+        element: <PrivetRoute>
+          <AdminRoute>
+           <CompleteList></CompleteList>
           </AdminRoute>
         </PrivetRoute>
       },
