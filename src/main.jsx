@@ -22,62 +22,99 @@ import Profile from './components/Profile/Profile.jsx';
 import AddProduct from './components/AddProduct/AddProduct.jsx';
 import Details from './components/AllProduct/Details.jsx';
 import Cart from './components/Cart/Cart.jsx';
-import AllProductTable from './components/AllProductTable/AllProductTable.jsx'; 
+import AllProductTable from './components/AllProductTable/AllProductTable.jsx';
 import ProductUpdate from './components/AllProductTable/ProductUpdate.jsx';
 import OrderInfo from './components/OrderInfo/OrderInfo.jsx';
 import MyOrder from './components/MyOrder/MyOrder.jsx';
 import AllOrder from './components/AllOrder/AllOrder.jsx';
 import AllUsers from './components/AllUsers/AllUsers.jsx';
+import PrivetRoute from './SecureRoute/PrivetRoute.jsx';
+import AdminRoute from './SecureRoute/AdminRoute.jsx';
+import AdminAndModeratorRoute from './SecureRoute/AdminAndModeratorRoute.jsx';
+import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <PrivetRoute>
+          <Home></Home>
+        </PrivetRoute>
       },
       {
         path: '/profile',
-        element: <Profile></Profile>
+        element: <PrivetRoute>
+          <Profile></Profile>
+        </PrivetRoute>
       },
       {
         path: '/addProduct',
-        element: <AddProduct></AddProduct>
+        element: <PrivetRoute>
+          <AdminAndModeratorRoute>
+          <AddProduct></AddProduct>
+          </AdminAndModeratorRoute>
+        </PrivetRoute>
       },
       {
         path: '/details/:id',
-        element: <Details></Details>
+        element: <PrivetRoute>
+          <Details></Details>
+        </PrivetRoute>
       },
       {
         path: '/updateProduct/:id',
-        element: <ProductUpdate></ProductUpdate>
+        element: <PrivetRoute>
+          <AdminAndModeratorRoute>
+          <ProductUpdate></ProductUpdate>
+          </AdminAndModeratorRoute>
+        </PrivetRoute>
       },
       {
         path: '/cart',
-        element: <Cart></Cart>
+        element: <PrivetRoute>
+          <Cart></Cart>
+        </PrivetRoute>
       },
       {
         path: '/allDataTable',
-        element: <AllProductTable></AllProductTable>
+        element: <PrivetRoute>
+          <AdminAndModeratorRoute>
+          <AllProductTable></AllProductTable>
+          </AdminAndModeratorRoute>
+        </PrivetRoute>
       },
       {
         path: '/orderInfo',
-        element: <OrderInfo></OrderInfo>
+        element: <PrivetRoute>
+          <OrderInfo></OrderInfo>
+        </PrivetRoute>
       },
       {
         path: '/myOrders',
-        element:  <MyOrder></MyOrder>
+        element: <PrivetRoute>
+          <MyOrder></MyOrder>
+        </PrivetRoute>
       },
       {
         path: '/allOrders',
-        element:  <AllOrder></AllOrder>
+        element: <PrivetRoute>
+          <AdminAndModeratorRoute>
+          <AllOrder></AllOrder>
+          </AdminAndModeratorRoute>
+        </PrivetRoute>
       },
       {
         path: '/allUsers',
-        element: <AllUsers></AllUsers>
+        element: <PrivetRoute>
+          <AdminRoute>
+          <AllUsers></AllUsers>
+          </AdminRoute>
+        </PrivetRoute>
       },
     ]
   },
