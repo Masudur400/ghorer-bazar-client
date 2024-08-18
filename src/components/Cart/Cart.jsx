@@ -31,7 +31,7 @@ const Cart = () => {
             <Helmet>
                 <title>MyCart</title>
             </Helmet> 
-            <div className="bg-gradient-to-r from-[#f0d3e2] to-[#dbbbcb] p-4 flex">
+            <div className="bg-gradient-to-r from-[#f0d3e2] to-[#dbbbcb] p-4 flex ">
                 <h2 className="text text-xl md:text-2xl font-bold text-white text-center flex-1">Your Cart</h2>
                 <div className="flex justify-end">
                  
@@ -50,7 +50,7 @@ const Cart = () => {
                   
                 </div>
             </div>
-            <div>
+            <div className="min-h-screen">
                 {
                     carts?.map(cart => <SingleCart key={cart._id} cart={cart} refetch={refetch}></SingleCart>)
                 }

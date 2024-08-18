@@ -76,7 +76,7 @@ const Details = () => {
      
 
     return (
-        <div className="my-10">
+        <div className="my-10 min-h-screen">
             <Helmet>
                 <title>{productName}</title>
             </Helmet> 
