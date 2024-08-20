@@ -68,7 +68,7 @@ const Details = () => {
                 icon: "success",
                 title: "Add cart successful",
                 showConfirmButton: false,
-                timer: 500
+                timer: 1000
               }); 
         }
     }

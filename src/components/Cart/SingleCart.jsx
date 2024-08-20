@@ -25,10 +25,12 @@ const SingleCart = ({cart, refetch}) => {
                         if (res.data.deletedCount > 0) {
                             refetch()
                             Swal.fire({
-                                title: "Deleted!",
-                                text: `cart item has been deleted.`,
-                                icon: "success"
-                            }); 
+                                position: "top-end",
+                                icon: "success",
+                                title: "cart item has been deleted.",
+                                showConfirmButton: false,
+                                timer: 1000
+                            });  
                         }
                     })
             }

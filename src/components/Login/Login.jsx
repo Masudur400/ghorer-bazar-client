@@ -27,10 +27,12 @@ import Swal from 'sweetalert2';
             .then(result => {
                 if (result?.user) {
                     Swal.fire({
-                        title: "Success!",
-                        text: "login successful!",
-                        icon: "success"
-                    });
+                        position: "top-end",
+                        icon: "success",
+                        title: "Login successful",
+                        showConfirmButton: false,
+                        timer: 1000
+                    }); 
                     navigate('/')
                 }
             })
@@ -56,10 +58,12 @@ import Swal from 'sweetalert2';
                     .then(res => {
                         if (res.data.insertedId) {
                             Swal.fire({
-                                title: "Success!",
-                                text: "login successful!",
-                                icon: "success"
-                            });
+                                position: "top-end",
+                                icon: "success",
+                                title: "Login successful.",
+                                showConfirmButton: false,
+                                timer: 1000
+                            }); 
                         } 
                     })
                     navigate('/')
@@ -79,7 +83,7 @@ import Swal from 'sweetalert2';
             <title>Login</title>
         </Helmet>
         <div className="flex justify-end">
-            <Link to='/' className="p-1 border-2 border-orange-500 rounded-full"><FaXmark className="md:text-3xl text-[#961c59] my-0"></FaXmark></Link>
+            <Link className="p-1 border-2 border-orange-500 rounded-full"><FaXmark className="md:text-3xl text-[#961c59] my-0"></FaXmark></Link>
         </div>
         <h3 className="text-3xl font-bold text-center  text my-4">Please LogIn</h3>
         <form onSubmit={handleLogin} className="">

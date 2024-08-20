@@ -26,10 +26,12 @@ const SingleOrder = ({ order, refetch }) => {
                         if (res.data.deletedCount > 0) {
                             refetch()
                             Swal.fire({
-                                title: "Deleted!",
-                                text: ` order has been deleted.`,
-                                icon: "success"
-                            });
+                                position: "top-end",
+                                icon: "success",
+                                title: "order has been deleted.",
+                                showConfirmButton: false,
+                                timer: 1000
+                            }); 
                         }
                     })
             }
@@ -70,7 +72,7 @@ const SingleOrder = ({ order, refetch }) => {
                             icon: "success",
                             title:  `status ${status}. can not cancel`,
                             showConfirmButton: false,
-                            timer: 500
+                            timer: 1000
                           })} className='bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] text-white font-medium px-2 py-1 rounded-md'>Order Cancel</button> :
                         <button onClick={() => handleDelete(order)} className='bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] text-white font-medium px-2 py-1 rounded-md'>Order Cancel</button>
                 }

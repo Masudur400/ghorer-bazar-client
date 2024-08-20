@@ -44,7 +44,7 @@ const Cart = () => {
                         icon: "success",
                         title: "No product available in cart",
                         showConfirmButton: false,
-                        timer: 500
+                        timer: 1000
                       }); }}  className="w-fit px-2 py-1 text-center rounded-md bg-gradient-to-r from-[#ee57a3] to-[#df0974] hover:from-[#c60e6a] hover:to-[#e775ae] text-white font-medium">Order Now : {totalPrice} tk</button>
                  }
                   

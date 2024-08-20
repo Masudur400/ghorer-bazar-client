@@ -18,7 +18,7 @@ const AllOrderSingle = ({ order, refetch }) => {
     const handleUpdateStatus = async (e) => {
         e.preventDefault()
         const currentStatus = e.target.status.value
-        const data = {
+        const data = { 
             name,
             email,
             phone,
@@ -31,14 +31,15 @@ const AllOrderSingle = ({ order, refetch }) => {
             productsIds
         }
         const res = await axiosSecure.patch(`/orders/patch/${_id}`, data)
-        if (res.data.modifiedCount > 0) {
+       
+         if (res.data.modifiedCount > 0) { 
             refetch()
             Swal.fire({
                 position: "top-end",
                 icon: "success",
                 title: "status update",
                 showConfirmButton: false,
-                timer: 500
+                timer: 1000
             });
             setOpen(!open)
         }
@@ -60,10 +61,12 @@ const AllOrderSingle = ({ order, refetch }) => {
                         if (res.data.deletedCount > 0) {
                             refetch()
                             Swal.fire({
-                                title: "Deleted!",
-                                text: ` order has been deleted.`,
-                                icon: "success"
-                            });
+                                position: "top-end",
+                                icon: "success",
+                                title: "order has been deleted.",
+                                showConfirmButton: false,
+                                timer: 1000
+                            }); 
                         }
                     })
             }
@@ -72,6 +75,7 @@ const AllOrderSingle = ({ order, refetch }) => {
 
     const handleCompleteOrderList = async () => {
         const data = {
+            productId: _id,
             name,
             email,
             phone,
@@ -83,15 +87,24 @@ const AllOrderSingle = ({ order, refetch }) => {
             productsIds,
             deliveryCharge
         }
-        const res = await axiosSecure.post(`completeList`, data)
-        console.log(res.data)
-        if (res.data.insertedId) {
+        const res = await axiosSecure.post(`completeList`, data) 
+        // console.log(res.data)
+        if (res.data.error) {
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "data already posted",
+                showConfirmButton: false,
+                timer: 1000
+            });
+        }
+        else if (res.data.insertedId) {
             Swal.fire({
                 position: "top-end",
                 icon: "success",
                 title: "data send completeList success!",
                 showConfirmButton: false,
-                timer: 500
+                timer: 1000
             });
         }
     }
@@ -128,7 +141,7 @@ const AllOrderSingle = ({ order, refetch }) => {
                     </div>)
                 }
 
-            </div>  
+            </div>
 
             <div className="divider my-0"></div>
             <div className='flex justify-between items-center my-2'>

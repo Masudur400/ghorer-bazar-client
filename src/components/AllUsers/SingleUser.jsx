@@ -30,7 +30,7 @@ const SingleUser = ({ user, idx, refetch }) => {
                 icon: "success",
                 title: "Role updated",
                 showConfirmButton: false,
-                timer: 500
+                timer: 1000
               });
         }
     }

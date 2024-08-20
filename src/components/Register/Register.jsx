@@ -82,10 +82,12 @@ const Register = () => {
                         .then(res => {
                             if (res.data.insertedId) { 
                                 Swal.fire({
-                                    title: "Success!",
-                                    text: "Register successfully!",
-                                    icon: "success"
-                                });
+                                    position: "top-end",
+                                    icon: "success",
+                                    title: "Register successful",
+                                    showConfirmButton: false,
+                                    timer: 1000
+                                }); 
                             }
                             setUserSuccess('user created successfully')
                             navigate(location?.state ? location.state : '/')
@@ -116,10 +118,12 @@ const Register = () => {
                 .then(res => {
                     if (res.data.insertedId) {
                         Swal.fire({
-                            title: "Success!",
-                            text: "login successful!",
-                            icon: "success"
-                        });
+                            position: "top-end",
+                            icon: "success",
+                            title: "Login successful",
+                            showConfirmButton: false,
+                            timer: 1000
+                        }); 
                     } 
                 })
                 navigate(location?.state ? location.state : '/')
@@ -142,7 +146,7 @@ const Register = () => {
         <div data-aos="zoom-in-down" className="w-4/5 lg:w-1/3 md:w-2/3 mx-auto border shadow-xl p-5 rounded-lg my-20">
 
             <div className="flex justify-end">
-                <Link to='/' className="p-1 border-2 border-orange-500 rounded-full"><FaXmark className="md:text-3xl text-[#961c59] my-0"></FaXmark></Link>
+                <Link className="p-1 border-2 border-orange-500 rounded-full"><FaXmark className="md:text-3xl text-[#961c59] my-0"></FaXmark></Link>
             </div>
 
             <h2 className="text-2xl font-bold text-center my-3 animate__animated animate__rubberBand text-[#961c59]">Please Register </h2>

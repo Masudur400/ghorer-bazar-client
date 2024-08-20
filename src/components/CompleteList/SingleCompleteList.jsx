@@ -29,10 +29,12 @@ const SingleCompleteList = ({data, refetch}) => {
                         if (res.data.deletedCount > 0) {
                             refetch()
                             Swal.fire({
-                                title: "Deleted!",
-                                text: ` product has been deleted.`,
-                                icon: "success"
-                            });
+                                position: "top-end",
+                                icon: "success",
+                                title: "product has been deleted.",
+                                showConfirmButton: false,
+                                timer: 1000
+                            }); 
                         }
                     })
             }
