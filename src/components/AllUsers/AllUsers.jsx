@@ -21,7 +21,7 @@ const AllUsers = () => {
     const sortedUsers = allUser?.sort((a, b) => {
         if (a.role === 'Admin' && b.role !== 'Admin') return -1;  
         if (a.role !== 'Admin' && b.role === 'Admin') return 1;  
-        if (a.role !== 'Moderator' && b.role === 'Moderator') return -1;  
+        if (a.role === 'Moderator' && b.role !== 'Moderator') return -1;  
         if (a.role !== 'Moderator' && b.role === 'Moderator') return 1;  
         if (a.role === 'Guest' && b.role !== 'Guest') return 1;  
         if (a.role !== 'Guest' && b.role === 'Guest') return -1;  
