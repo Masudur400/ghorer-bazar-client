@@ -44,7 +44,7 @@ const OrderInfo = () => {
         };
     });
     
-    console.log(idCarts);
+    
 
     const handleOrder = async (e) => {
         e.preventDefault()
@@ -117,8 +117,7 @@ const OrderInfo = () => {
                     }
                 </div>
 
-                <form onSubmit={handleOrder}>
-
+                <form onSubmit={handleOrder}> 
                     <div className="">
                         <div>
                             <p className="font-semibold">Your Name</p>
