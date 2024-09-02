@@ -11,7 +11,8 @@ import Swal from 'sweetalert2';
  
  const Login = () => {
     
-    const { login, googleLogin, loading } = useAuth()
+    const { login, googleLogin, loading, setLoading } = useAuth()
+    const [error, setError] = useState('')
     const axiosPublic = useAxiosPublic()
     const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false);
@@ -33,11 +34,14 @@ import Swal from 'sweetalert2';
                         showConfirmButton: false,
                         timer: 1000
                     }); 
+                    setError('')
                     navigate('/')
                 }
             })
             .catch(err => {
+                setError(err.message) 
                 console.log(err.message)
+                setLoading(false) 
             })
 
     }
@@ -102,6 +106,10 @@ import Swal from 'sweetalert2';
                 </div>
 
             <div>
+                {
+                    error?
+                    <p className='text-sm text-red-500'>please give your right email and password</p>:''
+                }
                 {
                     loading ? 
                     <button disabled className="w-full px-4 py-1 md:py-2 text-center text-lg rounded-md bg-[#961c59] hover:bg-[#a0155b] border hover:border-black-500 text-white font-bold my-3"><span className="loading loading-spinner loading-md"></span></button>
