@@ -44,7 +44,7 @@ const Home = () => {
             </> 
             :<>
              <div>
-                <img src={p1} alt="" className='w-full mt-5' />
+                {/* <img src={p1} alt="" className='w-full mt-5' /> */}
             </div>
             <div className='mt-10'>
                 <AllProduct></AllProduct>

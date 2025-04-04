@@ -7,6 +7,7 @@ import { FiPlus } from "react-icons/fi";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import useAuth from "../Hooks/useAuth";
 import Swal from "sweetalert2";
+// import Barcode from "react-barcode";
 
 
 
@@ -99,6 +100,9 @@ const Details = () => {
                     </div>
                 </div>
             </div> 
+            <div>
+                {/* <Barcode value={id}></Barcode> */}
+            </div>
 
         </div>
     );
